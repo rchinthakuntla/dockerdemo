@@ -12,7 +12,7 @@ node {
    } 
    
    stage('docker build/push') {            
-     docker.withRegistry('https://index.docker.io/v1/', 'Docker Registry Credentials') {
+     docker.withRegistry('https://index.docker.io/v1/', 'docker-registry-login') {
        def app = docker.build("rchinthakuntla/mycentos:${commit_id}", '.').push()
      }                                     
    }                                       
